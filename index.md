@@ -40,7 +40,7 @@ _本科毕设 C++_
 FFmpeg 是一款开源视频解码器和播放器。YOLO 是经典一阶检测器。在 Linux 环境下，我负责把用 LibTorch 写的 YOLOv3 算法嵌入到播放器 ffplay 源码中以实现实时检测。这是[项目地址](https://github.com/hanjialeOK/YOLOv3-in-FFmpeg)。
 
 - 性能上，可以播放多种类型视频文件，借助 1080Ti GPU 加速，帧率稳定达到 30 fps。
-- 技术上，不仅支持 YOLO 算法，其他图像处理神经网络模型均可采用该方法嵌入到 ffplay 中。
+- 技术上，不仅支持 YOLO 算法，其他图像处理神经网络模型均可采用该方法嵌入到 ffplay 中，如显著性检测算法，这是[项目地址](https://github.com/hanjialeOK/PoolNet-in-FFmpeg)。
 - 采用 makefile 编写管理项目。
 
 ### QT 实现音乐播放器（2019.06 – 2019.11）
