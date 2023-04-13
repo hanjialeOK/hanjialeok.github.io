@@ -23,6 +23,16 @@
 
 ## 项目
 
+### 基于 K8S 的集群管理系统
+
+_实验室项目 Go_
+
+基于 K8S 搭建的集群管理系统，目前已实际用于实验室机器管理。（2022.09 – 2023.03）
+
+- 整体采用微服务架构，网关模块，用户模块，任务模块等相互解耦，且均部署在集群中。其中网关模块通过 load balancer 暴露服务，任务模块通过 training-operator 服务启动 pytorchjob。
+- 任务模块使用 informer 监听 pytorchjob，实时更新数据库中的任务状态。
+- 数据库采用 pv/pvc 方式挂载 nas 存储服务器实现持久化存储。
+
 ### 强化学习科研
 
 _论文投稿 Python_
@@ -32,42 +42,31 @@ _论文投稿 Python_
 - 保存 PPO 的历史轨迹数据，在训练时重复利用，提高样本利用率。
 - 使用双重要性系数裁剪来控制历史数据带来的高方差，保证训练的稳定性。
 
-### 强化学习框架（2021.10 – 2022.01）
+### 分布式训练框架（2021.10 – 2022.01）
 
 _实验室项目 Python_
 
-使用 actor-learner 架构搭建的强化学习框架。可以在短时间内收集大量数据，缓解强化学习中的高方差问题，从而大幅提高强化算法的性能。
+使用 actor-learner 架构搭建的分布式强化学习训练框架，在实验室广泛用于游戏 AI 比赛。
 
-- 使用多 actor 多 learner 架构，多线程并行收集数据，充分利用 CPU 和 GPU 资源。
-- actor 和 learner 之间使用 ZeroMQ 进行通讯，actor 上传采样数据，learner 分发更新后的参数。
-- learner 可以使用多 GPU 快速进行梯度下降。
+- 使用多进程，多 actor 并行收集数据，充分利用 CPU 资源。
+- 使用分布式库 Horovod，多 learner 并行训练，加快训练速度。
+- 在短时间内收集和利用大量数据，缓解强化学习中的高方差问题，大幅提高强化算法的性能。
 
 ### FFmpeg 中嵌入 YOLOv3 检测算法（2021.01 – 2021.05）
 
 _本科毕设 C++_
 
-FFmpeg 是一款开源视频解码器和播放器。YOLO 是经典一阶检测器。在 Linux 环境下，我负责把用 LibTorch 写的 YOLOv3 算法嵌入到播放器 ffplay 源码中以实现实时检测。这是[项目地址](https://github.com/hanjialeOK/YOLOv3-in-FFmpeg)。
+使用 LibTorch 重写 YOLOv3 算法，然后嵌入到开源播放器 FFmpeg 中实现实时检测。这是[项目地址](https://github.com/hanjialeOK/YOLOv3-in-FFmpeg)。
 
 - 性能上，可以播放多种类型视频文件，借助 1080Ti GPU 加速，帧率稳定达到 30 fps。
-- 技术上，不仅支持 YOLO 算法，其他图像处理神经网络模型均可采用该方法嵌入到 ffplay 中，如显著性检测算法，这是[项目地址](https://github.com/hanjialeOK/PoolNet-in-FFmpeg)。
-- 采用 makefile 编写管理项目。
-
-### QT 实现音乐播放器（2019.06 – 2019.11）
-
-_个人项目 C++_
-
-使用 QT 模仿网易云桌面客户端，实现了整体模块设计和播放功能。这是[项目地址](https://github.com/hanjialeOK/Qt-musicPlayer-unfinshed)。
-
-- 整体结构是 MainWidget，由上方标题栏，左侧功能栏，底部播放栏，右侧显示栏组成。
-- 派生 QListWidget，实现美观的拖拽样式，拖拽超过边界时支持自动滚动，[查看效果](https://blog.csdn.net/weixin_43742643/article/details/100587922)。
+- 技术上，支持多种图像处理网络模型，如显著性检测算法，这是[项目地址](https://github.com/hanjialeOK/PoolNet-in-FFmpeg)。
 
 ## IT 技能
 
-- 编程语言: 熟悉 C/C++，Python。
-- 平台工具: 熟悉 Linux 常用命令，以及 Docker，Git 等开发工具。
+- 熟悉 C/C++，Python。
+- 熟悉数据库，计算机网络，操作系统等基础知识。
+- 熟悉 Linux 常用命令，以及 Docker，Git 等开发工具。
 
 ## 其他
 
-- 技术博客: [https://blog.csdn.net/weixin_43742643](https://blog.csdn.net/weixin_43742643)
-- GitHub: [https://github.com/hanjialeOK](https://blog.csdn.net/weixin_43742643)
 - 语言: 英语 (六级 526)
